@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+  - name: "Installing tomcat"
+    apt:
+      name: tomcat
+      state: present
+       
