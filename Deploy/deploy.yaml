@@ -4,11 +4,11 @@
   tasks:
   - name: "Installing tomcat"
     apt:
-      name: tomcat
+      name: tomcat8
       state: present
   - name: "starting tomcat service"
     service:
-      name: tomcat     
+      name: tomcat8     
       state: started
       enable: yes
   - name: "Deploying jenkis tomcat"
@@ -20,6 +20,6 @@
 - handlers: 
   - name: "restart tomcat"
     service:
-      name: tomcat
+      name: tomcat8
       state: restarted
         
