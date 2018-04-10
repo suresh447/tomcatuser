@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: true
+  - name: "Stopped tomcat8"
+    service:
+      name: tomcat8
+      state: stopped
+  - name: "Uninstall tomcat8"
+    apt:
+      name: tomcat8
+      purge: yes
+      autoremove: yes  
+       
