@@ -4,20 +4,22 @@
   tasks:
   - name: "Installing tomcat"
     apt:
-      name: tomcat
+      name: tomcat8
       state: present
+
   - name: "starting tomcat service"
     service:
-      name: tomcat    
+      name: tomcat8
       state: started
-      enable: yes
+
   - name: "Deploying jenkis tomcat"
     get_url:
-      url: http://ftp-nyc.osuosl.org/pub/jenkins/war-stable/2.107.1/jenkins.war  
-      dest: /usr/local/tomcat/webapps/jenkins.war
-    notify: "restart tomcat"    
+      url: http://ftp-nyc.osuosl.org/pub/jenkins/war-stable/2.107.1/jenkins.war
+      dest: /var/lib/tomcat8/webapps/jenkins.war
+      mode: 0755
 
-- handlers: 
+    notify: "restart tomcat"
+  handlers:
   - name: "restart tomcat"
     service:
       name: tomcat
