@@ -17,7 +17,7 @@
       dest: /usr/local/tomcat/webapps/jenkins.war
     notify: "restart tomcat"    
 
-  - handlers: 
+    handlers: 
       - name: "restart tomcat"
         service: tomcat
         state: restarted
